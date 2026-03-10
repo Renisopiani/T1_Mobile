@@ -2,7 +2,6 @@
 // TUGAS 2 - COLLECTIONS
 // Nama : Reni Sopiani
 // NIM  : F1D02310090
-// Topik: List, Map, Collection Operations
 
 // DATA CLASS
 // data class = class khusus untuk menyimpan data
@@ -35,29 +34,29 @@ fun main() {
     // listOf() = membuat list yang isinya TIDAK bisa diubah (immutable)
     // Setiap baris adalah 1 objek NilaiMahasiswa
     val mahasiswa = listOf(
-        NilaiMahasiswa("2024001", "Reni Sopiani",  "Pemrograman Mobile", 85),
-        NilaiMahasiswa("2024002", "Zila Islahul Ummah",    "Pemrograman Mobile", 92),
-        NilaiMahasiswa("2024003", "Citra Dewi",    "Pemrograman Mobile", 68),
-        NilaiMahasiswa("2024004", "Dani Pratama",  "Pemrograman Mobile", 45),
-        NilaiMahasiswa("2024005", "Eka Putri",     "Pemrograman Mobile", 78),
-        NilaiMahasiswa("2024006", "Fajar Nugroho", "Pemrograman Mobile", 55),
-        NilaiMahasiswa("2024007", "Devi Ramdani",  "Pemrograman Mobile", 70),
-        NilaiMahasiswa("2024008", "Hendra Kurnia", "Pemrograman Mobile", 88),
-        NilaiMahasiswa("2024009", "Indah Sari",    "Pemrograman Mobile", 62),
-        NilaiMahasiswa("2024010", "Joko Pratama",  "Pemrograman Mobile", 49)
+        NilaiMahasiswa("2024001", "Reni Sopiani",       "Pemrograman Mobile", 85),
+        NilaiMahasiswa("2024002", "Zila Islahul Ummah", "Pemrograman Mobile", 92),
+        NilaiMahasiswa("2024003", "Citra Dewi",         "Pemrograman Mobile", 68),
+        NilaiMahasiswa("2024004", "Dani Pratama",       "Pemrograman Mobile", 45),
+        NilaiMahasiswa("2024005", "Eka Putri",          "Pemrograman Mobile", 78),
+        NilaiMahasiswa("2024006", "Fajar Nugroho",      "Pemrograman Mobile", 55),
+        NilaiMahasiswa("2024007", "Devi Ramdani",       "Pemrograman Mobile", 70),
+        NilaiMahasiswa("2024008", "Hendra Kurnia",      "Pemrograman Mobile", 88),
+        NilaiMahasiswa("2024009", "Indah Sari",         "Pemrograman Mobile", 62),
+        NilaiMahasiswa("2024010", "Joko Pratama",       "Pemrograman Mobile", 49)
     )
 
     // BAGIAN 2: TAMPILKAN SEMUA DATA
     // forEachIndexed = loop sambil membawa nomor urut (index)
     // i = index mulai dari 0, m = objek NilaiMahasiswa
-    // padEnd(18) = tambah spasi di kanan sampai total 18 karakter
-    //              supaya tampilan kolom jadi rapi
+    // padEnd(22) = tambah spasi di kanan sampai total 22 karakter
+    //              supaya tampilan kolom jadi rapi (disesuaikan nama terpanjang)
     println("===== DATA NILAI MAHASISWA =====\n")
-    println("No   NIM       Nama              Nilai")
-    println("-".repeat(45))     // cetak 45 tanda "-" sebagai garis pemisah
+    println("No   NIM       Nama                    Nilai")
+    println("-".repeat(50))
 
     mahasiswa.forEachIndexed { i, m ->
-        println("${i+1}    ${m.nim}  ${m.nama.padEnd(18)}  ${m.nilai}")
+        println("${i+1}    ${m.nim}  ${m.nama.padEnd(22)}  ${m.nilai}")
         // i+1 karena index mulai dari 0, kita mau tampilkan mulai dari 1
     }
 
@@ -71,8 +70,8 @@ fun main() {
     val terendah  = mahasiswa.minByOrNull { it.nilai }
 
     println("\n===== STATISTIK =====")
-    println("Total Mahasiswa : ${mahasiswa.size}")                    // .size = jumlah elemen
-    println("Rata-rata Nilai : ${"%.1f".format(rataRata)}")           // %.1f = 1 angka desimal
+    println("Total Mahasiswa : ${mahasiswa.size}")                 // .size = jumlah elemen
+    println("Rata-rata Nilai : ${"%.1f".format(rataRata)}")        // %.1f = 1 angka desimal
     println("Nilai Tertinggi : ${tertinggi?.nilai} (${tertinggi?.nama})")
     println("Nilai Terendah  : ${terendah?.nilai} (${terendah?.nama})")
     // tanda ? setelah variabel = safe call, aman jika nilainya null
@@ -114,7 +113,7 @@ fun main() {
     // BAGIAN 8: KELOMPOKKAN BERDASARKAN GRADE
     // .groupBy {} = mengelompokkan data berdasarkan hasil fungsi
     // Hasilnya berupa Map: key = grade, value = list mahasiswa
-    // Contoh: {"A" -> [Ani, Hendra], "B" -> [Budi, Eka], ...}
+    // Contoh: {"A" -> [Zila, Hendra], "B" -> [Reni, Eka], ...}
     // perGrade[grade] = ambil list mahasiswa untuk grade tertentu
     // ?: emptyList() = jika grade tidak ada datanya, pakai list kosong
     println("\n===== KELOMPOK PER GRADE =====")
@@ -129,7 +128,7 @@ fun main() {
     // BAGIAN 9: CARI MAHASISWA BERDASARKAN NAMA
     // .contains(keyword, ignoreCase = true) = cek apakah nama
     //   mengandung kata kunci, ignoreCase = tidak peduli huruf besar/kecil
-    // Contoh: keyword "budi" akan cocok dengan "Budi Santoso"
+    // Contoh: keyword "reni" akan cocok dengan "Reni Sopiani"
     println("\n===== CARI MAHASISWA =====")
     print("Masukkan kata kunci nama: ")
     val keyword = readLine()!!      // baca input dari keyboard
