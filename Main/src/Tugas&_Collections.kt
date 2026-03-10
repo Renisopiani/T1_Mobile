@@ -1,5 +1,4 @@
 
-// TUGAS 2 - COLLECTIONS
 // Nama : Reni Sopiani
 // NIM  : F1D02310090
 
