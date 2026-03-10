@@ -1,8 +1,6 @@
 
-// TUGAS 2 - COLLECTIONS
 // Nama : Reni Sopiani
 // NIM  : F1D02310090
-// Topik: List, Map, Collection Operations
 
 // DATA CLASS
 // data class = class khusus untuk menyimpan data
